@@ -1,0 +1,107 @@
+{
+  "project": {
+    "company_name": "BritMart",
+    "dataset_name": "supplier_product_agreements",
+    "dataset_version": "1.0.0",
+    "master_seed": 20260816,
+    "uuid_namespace": "6f3f2d6a-75b1-5f12-9a76-0de2a31bd8d0",
+    "generated_timestamp": "2026-08-16T00:00:00Z"
+  },
+  "source_files": {
+    "products": "products.csv",
+    "suppliers": "suppliers.csv"
+  },
+  "expected_counts": {
+    "products": 2000,
+    "suppliers": 50,
+    "primary_agreements": 2000,
+    "secondary_agreements": 600,
+    "total_agreements": 2600
+  },
+  "supplier_eligibility": {
+    "eligible_statuses": [
+      "ACTIVE"
+    ],
+    "require_active_flag": true,
+    "require_category_match": true,
+    "require_storage_match": true
+  },
+  "coverage_rules": {
+    "primary_supplier_required_for_every_product": true,
+    "maximum_primary_suppliers_per_product": 1,
+    "secondary_supplier_coverage_rate": 0.3,
+    "maximum_secondary_suppliers_per_product": 1,
+    "prevent_same_supplier_as_primary_and_secondary": true,
+    "prefer_geographic_diversification": true
+  },
+  "secondary_supplier_priority": {
+    "HIGH": 0.5,
+    "MEDIUM": 0.3,
+    "LOW": 0.2
+  },
+  "agreement_status_distribution": {
+    "ACTIVE": 1.0
+  },
+  "commercial_rules": {
+    "effective_from": "2025-07-01",
+    "effective_to": null,
+    "primary_cost_multiplier": {
+      "minimum": 0.97,
+      "maximum": 1.02
+    },
+    "secondary_cost_multiplier": {
+      "minimum": 1.0,
+      "maximum": 1.06
+    },
+    "lead_time_adjustment_days": {
+      "minimum": -1,
+      "maximum": 3
+    },
+    "minimum_order_quantity_by_demand_tier": {
+      "HIGH": {
+        "minimum_cases": 10,
+        "maximum_cases": 40
+      },
+      "MEDIUM": {
+        "minimum_cases": 5,
+        "maximum_cases": 24
+      },
+      "LOW": {
+        "minimum_cases": 2,
+        "maximum_cases": 12
+      }
+    },
+    "order_multiple_rule": "CASE_PACK_QUANTITY",
+    "minimum_remaining_shelf_life_rate": {
+      "AMBIENT": 0.65,
+      "CHILLED": 0.75,
+      "FROZEN": 0.7
+    }
+  },
+  "currency_conversion": {
+    "base_currency": "GBP",
+    "rate_definition": "GBP_VALUE_PER_ONE_CURRENCY_UNIT",
+    "rates": {
+      "GBP": 1.0,
+      "EUR": 0.86,
+      "USD": 0.78,
+      "NZD": 0.45,
+      "AUD": 0.51
+    }
+  },
+  "allocation_controls": {
+    "maximum_primary_products_per_supplier": 120,
+    "maximum_total_products_per_supplier": 180,
+    "balance_workload_between_eligible_suppliers": true,
+    "prefer_lower_current_assignment_count": true
+  },
+  "incremental_extraction": {
+    "watermark_column": "updated_at",
+    "tie_breaker_column": "supplier_product_id",
+    "timestamp_timezone": "UTC"
+  },
+  "output": {
+    "agreement_file": "supplier_products.csv",
+    "manifest_file": "supplier_product_manifest.json"
+  }
+}

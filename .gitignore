@@ -1,0 +1,61 @@
+# Python virtual environments
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Testing cache and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Visual Studio Code local settings
+.vscode/
+*.code-workspace
+
+# Generated master-data outputs
+data-generators/output/*.csv
+data-generators/output/*.json
+!data-generators/output/.gitkeep
+
+# Logs and local databases
+*.log
+*.db
+*.sqlite
+*.sqlite3
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+
+# Build and packaging
+build/
+dist/
+*.egg-info/
+# Local environment secrets
+.env
+
+# Local SQLite databases
+*.db
+*.db-shm
+*.db-wal
+
+# Local SQLite databases
+*.db
+*.db-shm
+*.db-wal
+
+# Docker environment secrets
+.env.docker
+
+# Allow safe environment templates
+!.env.example
+!.env.docker.example

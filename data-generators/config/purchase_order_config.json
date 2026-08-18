@@ -1,0 +1,185 @@
+{
+  "project": {
+    "company_name": "BritMart",
+    "dataset_name": "purchase_orders",
+    "dataset_version": "1.0.0",
+    "master_seed": 20260816,
+    "uuid_namespace": "6f3f2d6a-75b1-5f12-9a76-0de2a31bd8d0",
+    "generated_timestamp": "2026-08-16T00:00:00Z",
+    "snapshot_timestamp": "2026-08-15T23:59:59Z"
+  },
+  "source_files": {
+    "products": "products.csv",
+    "suppliers": "suppliers.csv",
+    "supplier_products": "supplier_products.csv",
+    "distribution_centres": "distribution_centres.csv",
+    "master_validation_report": "master_data_validation_report.json"
+  },
+  "operating_period": {
+    "order_date_from": "2025-08-01",
+    "order_date_to": "2026-07-31",
+    "financial_year_start_month": 4,
+    "timezone": "Europe/London",
+    "stored_timestamp_timezone": "UTC"
+  },
+  "expected_counts": {
+    "purchase_orders": 8000,
+    "purchase_order_lines": 48000,
+    "average_lines_per_order": 6.0,
+    "minimum_lines_per_order": 2,
+    "maximum_lines_per_order": 12
+  },
+  "purchase_order_status_counts": {
+    "CLOSED": 6240,
+    "PARTIALLY_RECEIVED": 560,
+    "DISPATCHED": 480,
+    "CONFIRMED": 320,
+    "APPROVED": 240,
+    "DRAFT": 80,
+    "CANCELLED": 80
+  },
+  "order_type_distribution": {
+    "STANDARD_REPLENISHMENT": 0.78,
+    "PROMOTIONAL": 0.1,
+    "SEASONAL": 0.06,
+    "NEW_PRODUCT_LAUNCH": 0.03,
+    "EMERGENCY_REPLENISHMENT": 0.03
+  },
+  "supplier_selection": {
+    "allowed_supplier_statuses": [
+      "ACTIVE"
+    ],
+    "allowed_agreement_statuses": [
+      "ACTIVE"
+    ],
+    "primary_supplier_probability": 0.9,
+    "secondary_supplier_probability": 0.1,
+    "require_supplier_product_agreement": true,
+    "require_matching_currency": true
+  },
+  "line_allocation": {
+    "unique_product_per_purchase_order": true,
+    "respect_supplier_minimum_order_quantity": true,
+    "respect_order_multiple": true,
+    "quantity_multiplier_by_order_type": {
+      "STANDARD_REPLENISHMENT": {
+        "minimum": 1,
+        "maximum": 5
+      },
+      "PROMOTIONAL": {
+        "minimum": 3,
+        "maximum": 10
+      },
+      "SEASONAL": {
+        "minimum": 4,
+        "maximum": 12
+      },
+      "NEW_PRODUCT_LAUNCH": {
+        "minimum": 1,
+        "maximum": 4
+      },
+      "EMERGENCY_REPLENISHMENT": {
+        "minimum": 1,
+        "maximum": 3
+      }
+    },
+    "price_variance_rate": {
+      "minimum": -0.015,
+      "maximum": 0.02
+    },
+    "maximum_decimal_places": {
+      "quantity": 3,
+      "unit_price": 4,
+      "amount": 2
+    }
+  },
+  "delivery_rules": {
+    "deliver_to_distribution_centres_only": true,
+    "required_date_offset_by_order_type": {
+      "STANDARD_REPLENISHMENT": {
+        "minimum_days": 5,
+        "maximum_days": 21
+      },
+      "PROMOTIONAL": {
+        "minimum_days": 14,
+        "maximum_days": 45
+      },
+      "SEASONAL": {
+        "minimum_days": 21,
+        "maximum_days": 75
+      },
+      "NEW_PRODUCT_LAUNCH": {
+        "minimum_days": 14,
+        "maximum_days": 40
+      },
+      "EMERGENCY_REPLENISHMENT": {
+        "minimum_days": 1,
+        "maximum_days": 5
+      }
+    },
+    "supplier_lead_time_must_be_considered": true,
+    "weekend_delivery_allowed": false
+  },
+  "approval_rules": {
+    "currency_for_thresholds": "GBP",
+    "auto_approval_limit_gbp": 10000,
+    "procurement_manager_limit_gbp": 75000,
+    "procurement_director_limit_gbp": 250000,
+    "executive_approval_above_gbp": 250000,
+    "buyer_count": 12,
+    "buyer_code_prefix": "BUYER",
+    "approval_role_by_value": {
+      "AUTO_APPROVED": {
+        "minimum": 0,
+        "maximum": 10000
+      },
+      "PROCUREMENT_MANAGER": {
+        "minimum": 10000.01,
+        "maximum": 75000
+      },
+      "PROCUREMENT_DIRECTOR": {
+        "minimum": 75000.01,
+        "maximum": 250000
+      },
+      "EXECUTIVE_APPROVAL": {
+        "minimum": 250000.01,
+        "maximum": null
+      }
+    }
+  },
+  "tax_rules": {
+    "use_product_vat_rate": true,
+    "round_tax_per_line": true,
+    "amount_rounding_decimal_places": 2
+  },
+  "cancellation_rules": {
+    "cancelled_orders_have_no_shipments": true,
+    "cancellation_reason_distribution": {
+      "SUPPLIER_UNAVAILABLE": 0.25,
+      "DEMAND_CHANGED": 0.25,
+      "DUPLICATE_ORDER": 0.15,
+      "COMMERCIAL_TERMS_CHANGED": 0.15,
+      "PRODUCT_DISCONTINUED": 0.1,
+      "BUYER_ERROR": 0.1
+    }
+  },
+  "audit_rules": {
+    "initial_version_number": 1,
+    "created_by_system": "BRITMART_PROCUREMENT",
+    "updated_by_system": "BRITMART_PROCUREMENT",
+    "include_created_at": true,
+    "include_updated_at": true,
+    "timestamps_in_utc": true
+  },
+  "incremental_extraction": {
+    "watermark_column": "updated_at",
+    "tie_breaker_column": "purchase_order_id",
+    "line_tie_breaker_column": "purchase_order_line_id",
+    "timestamp_timezone": "UTC"
+  },
+  "output": {
+    "purchase_order_file": "purchase_orders.csv",
+    "purchase_order_line_file": "purchase_order_lines.csv",
+    "manifest_file": "purchase_order_manifest.json"
+  }
+}

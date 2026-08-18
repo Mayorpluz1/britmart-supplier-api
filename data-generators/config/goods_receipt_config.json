@@ -1,0 +1,189 @@
+{
+  "schema_version": "1.0.0",
+  "generator_name": "BritMart Warehouse Goods Receipt Generator",
+  "random_seed": 20260817,
+  "generation_timestamp_utc": "2026-08-17T00:00:00Z",
+
+  "source_ownership": {
+    "supplier_shipment_source": "SUPPLIER_API",
+    "goods_receipt_source": "WAREHOUSE_SQL",
+    "inventory_movement_source": "WAREHOUSE_SQL",
+    "authoritative_goods_receipt_system": "WAREHOUSE_SQL",
+    "authoritative_inventory_system": "WAREHOUSE_SQL"
+  },
+
+  "input_files": {
+    "shipments": "shipments.csv",
+    "shipment_lines": "shipment_lines.csv",
+    "purchase_orders": "purchase_orders.csv",
+    "purchase_order_lines": "purchase_order_lines.csv",
+    "products": "products.csv",
+    "suppliers": "suppliers.csv",
+    "distribution_centres": "distribution_centres.csv"
+  },
+
+  "output_files": {
+    "goods_receipts": "warehouse_goods_receipts.csv",
+    "goods_receipt_lines": "warehouse_goods_receipt_lines.csv",
+    "inventory_movements": "warehouse_inventory_movements.csv",
+    "manifest": "goods_receipt_manifest.json"
+  },
+
+  "eligible_shipment_statuses": [
+    "DELIVERED"
+  ],
+
+  "ineligible_shipment_statuses": [
+    "PLANNED",
+    "DISPATCHED",
+    "IN_TRANSIT",
+    "CANCELLED"
+  ],
+
+  "receipt_status": "POSTED",
+
+  "receipt_timing": {
+    "minimum_minutes_after_delivery": 15,
+    "maximum_minutes_after_delivery": 360,
+    "maximum_posting_delay_minutes": 120
+  },
+
+  "quality_rules": {
+    "accepted_inventory_bucket": "AVAILABLE",
+    "damaged_inventory_bucket": "QUARANTINE",
+    "rejected_inventory_bucket": "REJECTED",
+    "zero_quantity_movements_allowed": false,
+    "damaged_stock_requires_quality_hold": true,
+    "rejected_stock_has_no_available_inventory_effect": true
+  },
+
+  "inventory_movement_types": {
+    "accepted": "SUPPLIER_RECEIPT_AVAILABLE",
+    "damaged": "SUPPLIER_RECEIPT_QUARANTINE",
+    "rejected": "SUPPLIER_RECEIPT_REJECTED"
+  },
+
+  "stock_effect_rules": {
+    "SUPPLIER_RECEIPT_AVAILABLE": {
+      "available_quantity_multiplier": 1,
+      "quarantine_quantity_multiplier": 0,
+      "physical_quantity_multiplier": 1
+    },
+    "SUPPLIER_RECEIPT_QUARANTINE": {
+      "available_quantity_multiplier": 0,
+      "quarantine_quantity_multiplier": 1,
+      "physical_quantity_multiplier": 1
+    },
+    "SUPPLIER_RECEIPT_REJECTED": {
+      "available_quantity_multiplier": 0,
+      "quarantine_quantity_multiplier": 0,
+      "physical_quantity_multiplier": 0
+    }
+  },
+
+  "warehouse_operating_configuration": {
+    "dock_door_codes": [
+      "DOCK-01",
+      "DOCK-02",
+      "DOCK-03",
+      "DOCK-04",
+      "DOCK-05",
+      "DOCK-06",
+      "DOCK-07",
+      "DOCK-08",
+      "DOCK-09",
+      "DOCK-10",
+      "DOCK-11",
+      "DOCK-12"
+    ],
+
+    "receiver_codes": [
+      "RCV-001",
+      "RCV-002",
+      "RCV-003",
+      "RCV-004",
+      "RCV-005",
+      "RCV-006",
+      "RCV-007",
+      "RCV-008",
+      "RCV-009",
+      "RCV-010",
+      "RCV-011",
+      "RCV-012"
+    ],
+
+    "quality_inspector_codes": [
+      "QI-001",
+      "QI-002",
+      "QI-003",
+      "QI-004",
+      "QI-005",
+      "QI-006"
+    ]
+  },
+
+  "business_key_prefixes": {
+    "goods_receipt_number": "GRN",
+    "goods_receipt_line_number": "GRL",
+    "inventory_movement_reference": "IMV"
+  },
+
+  "idempotency": {
+    "goods_receipt_business_key": [
+      "source_system",
+      "shipment_id"
+    ],
+    "goods_receipt_line_business_key": [
+      "goods_receipt_id",
+      "shipment_line_id"
+    ],
+    "inventory_movement_business_key": [
+      "goods_receipt_line_id",
+      "movement_type"
+    ]
+  },
+
+  "reconciliation_rules": {
+    "one_goods_receipt_per_delivered_shipment": true,
+    "non_delivered_shipments_must_not_have_receipts": true,
+    "receipt_supplier_must_match_shipment_supplier": true,
+    "receipt_destination_must_match_shipment_destination": true,
+    "receipt_purchase_order_must_match_shipment_purchase_order": true,
+    "receipt_line_must_reference_valid_shipment_line": true,
+    "received_quantity_must_match_supplier_api": true,
+    "damaged_quantity_must_match_supplier_api": true,
+    "rejected_quantity_must_match_supplier_api": true,
+    "accepted_quantity_must_match_supplier_api": true,
+    "received_quantity_must_reconcile": true,
+    "available_inventory_increase_equals_accepted_quantity": true,
+    "quarantine_inventory_increase_equals_damaged_quantity": true,
+    "rejected_quantity_has_zero_physical_inventory_effect": true
+  },
+
+  "fabric_incremental_extraction": {
+    "watermark_column": "updated_at",
+    "tie_breaker_column": "goods_receipt_id",
+    "timestamp_timezone": "UTC",
+    "default_page_size": 100,
+    "maximum_page_size": 1000,
+    "supports_updated_since": true
+  },
+
+  "expected_validation_domains": [
+    "FILE_EXISTENCE",
+    "SCHEMA",
+    "UNIQUENESS",
+    "IDEMPOTENCY",
+    "REFERENTIAL_INTEGRITY",
+    "SOURCE_SYSTEM_OWNERSHIP",
+    "DELIVERED_SHIPMENT_ELIGIBILITY",
+    "RECEIPT_QUANTITY_RECONCILIATION",
+    "HEADER_TO_LINE_RECONCILIATION",
+    "AVAILABLE_INVENTORY_RECONCILIATION",
+    "QUARANTINE_INVENTORY_RECONCILIATION",
+    "REJECTED_QUANTITY_RECONCILIATION",
+    "UTC_TIMESTAMP_VALIDATION",
+    "MANIFEST_INTEGRITY",
+    "REPRODUCIBILITY"
+  ]
+}

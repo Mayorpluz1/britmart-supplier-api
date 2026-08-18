@@ -1,0 +1,1602 @@
+{
+  "project": {
+    "company_name": "BritMart",
+    "dataset_version": "1.0.0",
+    "master_seed": 20260816,
+    "uuid_namespace": "6f3f2d6a-75b1-5f12-9a76-0de2a31bd8d0",
+    "generated_timestamp": "2026-08-16T00:00:00Z"
+  },
+  "expected_counts": {
+    "categories": 5,
+    "subcategories": 40,
+    "products": 2000
+  },
+  "brand_distribution": {
+    "BRITMART_OWN_BRAND": 0.45,
+    "NATIONAL_BRAND": 0.4,
+    "REGIONAL_BRAND": 0.15
+  },
+  "brand_names": {
+    "BRITMART_OWN_BRAND": [
+      "BritMart",
+      "BritMart Essentials",
+      "BritMart Finest",
+      "BritMart Free From",
+      "BritMart Organic"
+    ],
+    "NATIONAL_BRAND": [
+      "Oakfield",
+      "Harvest Lane",
+      "Northstar",
+      "Blue Meadow",
+      "Crown Valley",
+      "Silver Brook",
+      "Green Hearth",
+      "Redwood",
+      "Morning Vale",
+      "Pure Haven"
+    ],
+    "REGIONAL_BRAND": [
+      "Pennine Pantry",
+      "Cotswold Kitchen",
+      "Highland Table",
+      "Welsh Valley",
+      "Yorkshire Fields",
+      "Severn House",
+      "Mersey Foods",
+      "Thames Garden"
+    ]
+  },
+  "demand_tiers": {
+    "A": {
+      "product_share": 0.2,
+      "relative_demand_weight": 5.0
+    },
+    "B": {
+      "product_share": 0.3,
+      "relative_demand_weight": 2.5
+    },
+    "C": {
+      "product_share": 0.35,
+      "relative_demand_weight": 1.2
+    },
+    "D": {
+      "product_share": 0.15,
+      "relative_demand_weight": 0.4
+    }
+  },
+  "country_of_origin_distribution": {
+    "GB": 0.6,
+    "EU": 0.28,
+    "OTHER": 0.12
+  },
+  "country_pools": {
+    "GB": [
+      "GB"
+    ],
+    "EU": [
+      "IE",
+      "FR",
+      "ES",
+      "IT",
+      "DE",
+      "NL",
+      "BE",
+      "PL",
+      "PT",
+      "GR"
+    ],
+    "OTHER": [
+      "BR",
+      "ZA",
+      "MA",
+      "KE",
+      "IN",
+      "TH",
+      "NZ",
+      "AU",
+      "TR",
+      "CR"
+    ]
+  },
+  "common_rules": {
+    "minimum_gross_margin_rate": 0.18,
+    "maximum_gross_margin_rate": 0.55,
+    "minimum_case_pack_quantity": 1,
+    "maximum_case_pack_quantity": 24,
+    "minimum_reorder_level": 5,
+    "maximum_reorder_level": 250,
+    "minimum_safety_stock_quantity": 3,
+    "maximum_safety_stock_quantity": 150,
+    "effective_from": "2025-07-01"
+  },
+  "categories": [
+    {
+      "category_code": "CAT-01",
+      "category_name": "Fresh Food",
+      "product_count": 480,
+      "subcategories": [
+        {
+          "subcategory_code": "SUB-001",
+          "subcategory_name": "Fruit",
+          "product_count": 65,
+          "storage_type": "CHILLED",
+          "perishable_flag": true,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 3,
+            "maximum": 21
+          },
+          "retail_price": {
+            "minimum": 0.5,
+            "maximum": 6.0
+          },
+          "unit_options": [
+            "EACH",
+            "PACK",
+            "KILOGRAM"
+          ],
+          "package_options": [
+            "Single",
+            "4 Pack",
+            "6 Pack",
+            "500g",
+            "1kg"
+          ],
+          "name_terms": [
+            "Apples",
+            "Bananas",
+            "Oranges",
+            "Grapes",
+            "Pears",
+            "Berries",
+            "Melon",
+            "Mango",
+            "Pineapple",
+            "Plums"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-002",
+          "subcategory_name": "Vegetables",
+          "product_count": 65,
+          "storage_type": "CHILLED",
+          "perishable_flag": true,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 3,
+            "maximum": 21
+          },
+          "retail_price": {
+            "minimum": 0.45,
+            "maximum": 5.5
+          },
+          "unit_options": [
+            "EACH",
+            "PACK",
+            "KILOGRAM"
+          ],
+          "package_options": [
+            "Single",
+            "3 Pack",
+            "500g",
+            "750g",
+            "1kg"
+          ],
+          "name_terms": [
+            "Carrots",
+            "Potatoes",
+            "Broccoli",
+            "Tomatoes",
+            "Peppers",
+            "Onions",
+            "Spinach",
+            "Mushrooms",
+            "Cabbage",
+            "Courgettes"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-003",
+          "subcategory_name": "Meat",
+          "product_count": 65,
+          "storage_type": "CHILLED",
+          "perishable_flag": true,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 3,
+            "maximum": 14
+          },
+          "retail_price": {
+            "minimum": 2.5,
+            "maximum": 18.0
+          },
+          "unit_options": [
+            "PACK",
+            "KILOGRAM"
+          ],
+          "package_options": [
+            "250g",
+            "400g",
+            "500g",
+            "750g",
+            "1kg"
+          ],
+          "name_terms": [
+            "Beef Mince",
+            "Beef Steak",
+            "Pork Chops",
+            "Pork Mince",
+            "Lamb Chops",
+            "Lamb Mince",
+            "Beef Roasting Joint",
+            "Pork Sausages"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-004",
+          "subcategory_name": "Poultry",
+          "product_count": 55,
+          "storage_type": "CHILLED",
+          "perishable_flag": true,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 3,
+            "maximum": 12
+          },
+          "retail_price": {
+            "minimum": 2.0,
+            "maximum": 14.0
+          },
+          "unit_options": [
+            "PACK",
+            "KILOGRAM"
+          ],
+          "package_options": [
+            "300g",
+            "500g",
+            "650g",
+            "1kg",
+            "Whole"
+          ],
+          "name_terms": [
+            "Chicken Breast",
+            "Chicken Thighs",
+            "Chicken Drumsticks",
+            "Whole Chicken",
+            "Turkey Breast",
+            "Turkey Mince",
+            "Duck Breast"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-005",
+          "subcategory_name": "Fish",
+          "product_count": 45,
+          "storage_type": "CHILLED",
+          "perishable_flag": true,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 2,
+            "maximum": 9
+          },
+          "retail_price": {
+            "minimum": 2.5,
+            "maximum": 16.0
+          },
+          "unit_options": [
+            "PACK",
+            "KILOGRAM"
+          ],
+          "package_options": [
+            "2 Fillets",
+            "4 Fillets",
+            "200g",
+            "400g",
+            "500g"
+          ],
+          "name_terms": [
+            "Salmon Fillets",
+            "Cod Fillets",
+            "Haddock Fillets",
+            "Sea Bass",
+            "Mackerel",
+            "Prawns",
+            "Tuna Steaks"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-006",
+          "subcategory_name": "Bakery",
+          "product_count": 65,
+          "storage_type": "AMBIENT",
+          "perishable_flag": true,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 2,
+            "maximum": 14
+          },
+          "retail_price": {
+            "minimum": 0.7,
+            "maximum": 6.0
+          },
+          "unit_options": [
+            "EACH",
+            "PACK"
+          ],
+          "package_options": [
+            "Single",
+            "4 Pack",
+            "6 Pack",
+            "400g",
+            "800g"
+          ],
+          "name_terms": [
+            "White Bread",
+            "Wholemeal Bread",
+            "Seeded Loaf",
+            "Bread Rolls",
+            "Croissants",
+            "Bagels",
+            "Muffins",
+            "Sourdough"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-007",
+          "subcategory_name": "Dairy",
+          "product_count": 65,
+          "storage_type": "CHILLED",
+          "perishable_flag": true,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 5,
+            "maximum": 40
+          },
+          "retail_price": {
+            "minimum": 0.7,
+            "maximum": 8.0
+          },
+          "unit_options": [
+            "PACK",
+            "LITRE",
+            "GRAM"
+          ],
+          "package_options": [
+            "250ml",
+            "500ml",
+            "1 Litre",
+            "2 Litre",
+            "250g",
+            "500g"
+          ],
+          "name_terms": [
+            "Whole Milk",
+            "Semi-Skimmed Milk",
+            "Skimmed Milk",
+            "Cheddar Cheese",
+            "Soft Cheese",
+            "Butter",
+            "Cream",
+            "Eggs"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-008",
+          "subcategory_name": "Prepared Meals",
+          "product_count": 55,
+          "storage_type": "CHILLED",
+          "perishable_flag": true,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 3,
+            "maximum": 14
+          },
+          "retail_price": {
+            "minimum": 2.5,
+            "maximum": 10.0
+          },
+          "unit_options": [
+            "PACK"
+          ],
+          "package_options": [
+            "Single Serve",
+            "400g",
+            "500g",
+            "Family Size"
+          ],
+          "name_terms": [
+            "Chicken Curry",
+            "Beef Lasagne",
+            "Cottage Pie",
+            "Macaroni Cheese",
+            "Vegetable Curry",
+            "Chicken Pasta",
+            "Fish Pie",
+            "Noodle Bowl"
+          ]
+        }
+      ]
+    },
+    {
+      "category_code": "CAT-02",
+      "category_name": "Grocery",
+      "product_count": 520,
+      "subcategories": [
+        {
+          "subcategory_code": "SUB-009",
+          "subcategory_name": "Tinned Food",
+          "product_count": 65,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 365,
+            "maximum": 1095
+          },
+          "retail_price": {
+            "minimum": 0.45,
+            "maximum": 5.0
+          },
+          "unit_options": [
+            "EACH",
+            "PACK"
+          ],
+          "package_options": [
+            "200g",
+            "400g",
+            "4 Pack",
+            "6 Pack"
+          ],
+          "name_terms": [
+            "Baked Beans",
+            "Chopped Tomatoes",
+            "Sweetcorn",
+            "Tuna Chunks",
+            "Soup",
+            "Kidney Beans",
+            "Chickpeas",
+            "Peas"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-010",
+          "subcategory_name": "Pasta and Rice",
+          "product_count": 65,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 365,
+            "maximum": 1095
+          },
+          "retail_price": {
+            "minimum": 0.7,
+            "maximum": 8.0
+          },
+          "unit_options": [
+            "PACK",
+            "KILOGRAM"
+          ],
+          "package_options": [
+            "250g",
+            "500g",
+            "1kg",
+            "2kg"
+          ],
+          "name_terms": [
+            "Spaghetti",
+            "Penne",
+            "Fusilli",
+            "Basmati Rice",
+            "Long Grain Rice",
+            "Brown Rice",
+            "Jasmine Rice",
+            "Lasagne Sheets"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-011",
+          "subcategory_name": "Breakfast",
+          "product_count": 65,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 180,
+            "maximum": 730
+          },
+          "retail_price": {
+            "minimum": 1.0,
+            "maximum": 8.0
+          },
+          "unit_options": [
+            "PACK"
+          ],
+          "package_options": [
+            "300g",
+            "500g",
+            "750g",
+            "1kg"
+          ],
+          "name_terms": [
+            "Corn Flakes",
+            "Porridge Oats",
+            "Granola",
+            "Wheat Biscuits",
+            "Muesli",
+            "Chocolate Cereal",
+            "Fruit Cereal",
+            "Bran Flakes"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-012",
+          "subcategory_name": "Cooking Ingredients",
+          "product_count": 70,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 180,
+            "maximum": 1095
+          },
+          "retail_price": {
+            "minimum": 0.5,
+            "maximum": 10.0
+          },
+          "unit_options": [
+            "PACK",
+            "GRAM",
+            "MILLILITRE"
+          ],
+          "package_options": [
+            "50g",
+            "100g",
+            "250g",
+            "500g",
+            "250ml",
+            "500ml"
+          ],
+          "name_terms": [
+            "Plain Flour",
+            "Self-Raising Flour",
+            "Cooking Oil",
+            "Olive Oil",
+            "Sugar",
+            "Herbs",
+            "Spices",
+            "Stock Cubes",
+            "Baking Powder"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-013",
+          "subcategory_name": "Snacks",
+          "product_count": 70,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 90,
+            "maximum": 540
+          },
+          "retail_price": {
+            "minimum": 0.5,
+            "maximum": 6.0
+          },
+          "unit_options": [
+            "PACK"
+          ],
+          "package_options": [
+            "25g",
+            "50g",
+            "100g",
+            "150g",
+            "6 Pack"
+          ],
+          "name_terms": [
+            "Ready Salted Crisps",
+            "Cheese Crisps",
+            "Tortilla Chips",
+            "Popcorn",
+            "Pretzels",
+            "Rice Cakes",
+            "Mixed Nuts",
+            "Snack Mix"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-014",
+          "subcategory_name": "Confectionery",
+          "product_count": 70,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 120,
+            "maximum": 730
+          },
+          "retail_price": {
+            "minimum": 0.5,
+            "maximum": 15.0
+          },
+          "unit_options": [
+            "EACH",
+            "PACK"
+          ],
+          "package_options": [
+            "Single",
+            "4 Pack",
+            "100g",
+            "200g",
+            "Sharing Bag"
+          ],
+          "name_terms": [
+            "Milk Chocolate",
+            "Dark Chocolate",
+            "Fruit Sweets",
+            "Mint Chocolates",
+            "Caramel Bar",
+            "Gummy Sweets",
+            "Chocolate Selection",
+            "Toffee"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-015",
+          "subcategory_name": "Condiments",
+          "product_count": 55,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 180,
+            "maximum": 730
+          },
+          "retail_price": {
+            "minimum": 0.7,
+            "maximum": 7.0
+          },
+          "unit_options": [
+            "MILLILITRE",
+            "GRAM"
+          ],
+          "package_options": [
+            "200ml",
+            "300ml",
+            "500ml",
+            "250g",
+            "500g"
+          ],
+          "name_terms": [
+            "Tomato Ketchup",
+            "Mayonnaise",
+            "Brown Sauce",
+            "Mustard",
+            "Salad Dressing",
+            "Barbecue Sauce",
+            "Chilli Sauce",
+            "Pickle"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-016",
+          "subcategory_name": "World Foods",
+          "product_count": 60,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 180,
+            "maximum": 1095
+          },
+          "retail_price": {
+            "minimum": 1.0,
+            "maximum": 12.0
+          },
+          "unit_options": [
+            "PACK",
+            "GRAM",
+            "MILLILITRE"
+          ],
+          "package_options": [
+            "200g",
+            "400g",
+            "500g",
+            "250ml",
+            "500ml"
+          ],
+          "name_terms": [
+            "Curry Sauce",
+            "Coconut Milk",
+            "Noodles",
+            "Taco Kit",
+            "Salsa",
+            "Jerk Seasoning",
+            "Mediterranean Sauce",
+            "Stir-Fry Sauce"
+          ]
+        }
+      ]
+    },
+    {
+      "category_code": "CAT-03",
+      "category_name": "Beverages",
+      "product_count": 300,
+      "subcategories": [
+        {
+          "subcategory_code": "SUB-017",
+          "subcategory_name": "Water",
+          "product_count": 35,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 180,
+            "maximum": 730
+          },
+          "retail_price": {
+            "minimum": 0.4,
+            "maximum": 8.0
+          },
+          "unit_options": [
+            "MILLILITRE",
+            "LITRE",
+            "PACK"
+          ],
+          "package_options": [
+            "500ml",
+            "1 Litre",
+            "2 Litre",
+            "6 Pack",
+            "12 Pack"
+          ],
+          "name_terms": [
+            "Still Water",
+            "Sparkling Water",
+            "Mineral Water",
+            "Spring Water",
+            "Flavoured Water"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-018",
+          "subcategory_name": "Soft Drinks",
+          "product_count": 45,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 120,
+            "maximum": 540
+          },
+          "retail_price": {
+            "minimum": 0.6,
+            "maximum": 12.0
+          },
+          "unit_options": [
+            "MILLILITRE",
+            "LITRE",
+            "PACK"
+          ],
+          "package_options": [
+            "330ml",
+            "500ml",
+            "1.5 Litre",
+            "2 Litre",
+            "6 Pack",
+            "12 Pack"
+          ],
+          "name_terms": [
+            "Cola",
+            "Lemonade",
+            "Orange Drink",
+            "Ginger Beer",
+            "Tonic Water",
+            "Cream Soda",
+            "Fruit Drink"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-019",
+          "subcategory_name": "Juice",
+          "product_count": 40,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 90,
+            "maximum": 365
+          },
+          "retail_price": {
+            "minimum": 0.8,
+            "maximum": 7.0
+          },
+          "unit_options": [
+            "MILLILITRE",
+            "LITRE"
+          ],
+          "package_options": [
+            "250ml",
+            "500ml",
+            "1 Litre",
+            "1.5 Litre"
+          ],
+          "name_terms": [
+            "Orange Juice",
+            "Apple Juice",
+            "Pineapple Juice",
+            "Cranberry Juice",
+            "Mango Juice",
+            "Mixed Fruit Juice"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-020",
+          "subcategory_name": "Tea",
+          "product_count": 35,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 365,
+            "maximum": 1095
+          },
+          "retail_price": {
+            "minimum": 1.0,
+            "maximum": 10.0
+          },
+          "unit_options": [
+            "PACK"
+          ],
+          "package_options": [
+            "40 Bags",
+            "80 Bags",
+            "160 Bags",
+            "250g"
+          ],
+          "name_terms": [
+            "Black Tea",
+            "Green Tea",
+            "Peppermint Tea",
+            "Chamomile Tea",
+            "Fruit Tea",
+            "Earl Grey Tea"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-021",
+          "subcategory_name": "Coffee",
+          "product_count": 40,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 270,
+            "maximum": 1095
+          },
+          "retail_price": {
+            "minimum": 1.5,
+            "maximum": 15.0
+          },
+          "unit_options": [
+            "PACK",
+            "GRAM"
+          ],
+          "package_options": [
+            "100g",
+            "200g",
+            "250g",
+            "500g",
+            "10 Pods"
+          ],
+          "name_terms": [
+            "Instant Coffee",
+            "Ground Coffee",
+            "Coffee Beans",
+            "Espresso Coffee",
+            "Decaffeinated Coffee",
+            "Coffee Pods"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-022",
+          "subcategory_name": "Energy Drinks",
+          "product_count": 30,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 180,
+            "maximum": 540
+          },
+          "retail_price": {
+            "minimum": 0.8,
+            "maximum": 10.0
+          },
+          "unit_options": [
+            "MILLILITRE",
+            "PACK"
+          ],
+          "package_options": [
+            "250ml",
+            "330ml",
+            "500ml",
+            "4 Pack",
+            "8 Pack"
+          ],
+          "name_terms": [
+            "Original Energy Drink",
+            "Sugar-Free Energy Drink",
+            "Tropical Energy Drink",
+            "Berry Energy Drink",
+            "Citrus Energy Drink"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-023",
+          "subcategory_name": "Beer and Cider",
+          "product_count": 40,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": true,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 180,
+            "maximum": 730
+          },
+          "retail_price": {
+            "minimum": 1.5,
+            "maximum": 25.0
+          },
+          "unit_options": [
+            "MILLILITRE",
+            "PACK"
+          ],
+          "package_options": [
+            "330ml",
+            "500ml",
+            "4 Pack",
+            "8 Pack",
+            "12 Pack"
+          ],
+          "name_terms": [
+            "Lager",
+            "Pale Ale",
+            "Stout",
+            "Apple Cider",
+            "Pear Cider",
+            "Alcohol-Free Lager"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-024",
+          "subcategory_name": "Wine",
+          "product_count": 35,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": true,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 365,
+            "maximum": 1825
+          },
+          "retail_price": {
+            "minimum": 4.5,
+            "maximum": 35.0
+          },
+          "unit_options": [
+            "MILLILITRE"
+          ],
+          "package_options": [
+            "187ml",
+            "375ml",
+            "750ml"
+          ],
+          "name_terms": [
+            "Red Wine",
+            "White Wine",
+            "Rosé Wine",
+            "Sparkling Wine",
+            "Alcohol-Free Wine"
+          ]
+        }
+      ]
+    },
+    {
+      "category_code": "CAT-04",
+      "category_name": "Frozen and Chilled",
+      "product_count": 360,
+      "subcategories": [
+        {
+          "subcategory_code": "SUB-025",
+          "subcategory_name": "Frozen Meals",
+          "product_count": 50,
+          "storage_type": "FROZEN",
+          "perishable_flag": true,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 180,
+            "maximum": 730
+          },
+          "retail_price": {
+            "minimum": 1.5,
+            "maximum": 10.0
+          },
+          "unit_options": [
+            "PACK"
+          ],
+          "package_options": [
+            "300g",
+            "400g",
+            "500g",
+            "Family Size"
+          ],
+          "name_terms": [
+            "Chicken Curry",
+            "Beef Lasagne",
+            "Cottage Pie",
+            "Vegetable Curry",
+            "Fish Pie",
+            "Pasta Bake"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-026",
+          "subcategory_name": "Frozen Vegetables",
+          "product_count": 40,
+          "storage_type": "FROZEN",
+          "perishable_flag": true,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 270,
+            "maximum": 730
+          },
+          "retail_price": {
+            "minimum": 0.8,
+            "maximum": 6.0
+          },
+          "unit_options": [
+            "PACK"
+          ],
+          "package_options": [
+            "500g",
+            "750g",
+            "1kg"
+          ],
+          "name_terms": [
+            "Garden Peas",
+            "Mixed Vegetables",
+            "Sweetcorn",
+            "Broccoli",
+            "Spinach",
+            "Green Beans"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-027",
+          "subcategory_name": "Frozen Meat",
+          "product_count": 40,
+          "storage_type": "FROZEN",
+          "perishable_flag": true,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 180,
+            "maximum": 730
+          },
+          "retail_price": {
+            "minimum": 2.0,
+            "maximum": 16.0
+          },
+          "unit_options": [
+            "PACK",
+            "KILOGRAM"
+          ],
+          "package_options": [
+            "500g",
+            "750g",
+            "1kg",
+            "2kg"
+          ],
+          "name_terms": [
+            "Chicken Breast",
+            "Beef Burgers",
+            "Meatballs",
+            "Pork Sausages",
+            "Chicken Pieces",
+            "Lamb Chops"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-028",
+          "subcategory_name": "Ice Cream",
+          "product_count": 45,
+          "storage_type": "FROZEN",
+          "perishable_flag": true,
+          "age_restricted_flag": false,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 180,
+            "maximum": 540
+          },
+          "retail_price": {
+            "minimum": 1.0,
+            "maximum": 10.0
+          },
+          "unit_options": [
+            "PACK",
+            "MILLILITRE",
+            "LITRE"
+          ],
+          "package_options": [
+            "4 Pack",
+            "500ml",
+            "1 Litre",
+            "2 Litre"
+          ],
+          "name_terms": [
+            "Vanilla Ice Cream",
+            "Chocolate Ice Cream",
+            "Strawberry Ice Cream",
+            "Caramel Ice Cream",
+            "Ice Cream Bars",
+            "Fruit Lollies"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-029",
+          "subcategory_name": "Pizza",
+          "product_count": 40,
+          "storage_type": "FROZEN",
+          "perishable_flag": true,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 180,
+            "maximum": 540
+          },
+          "retail_price": {
+            "minimum": 1.5,
+            "maximum": 9.0
+          },
+          "unit_options": [
+            "EACH",
+            "PACK"
+          ],
+          "package_options": [
+            "Single",
+            "2 Pack",
+            "10 Inch",
+            "12 Inch"
+          ],
+          "name_terms": [
+            "Margherita Pizza",
+            "Pepperoni Pizza",
+            "Vegetable Pizza",
+            "Cheese Pizza",
+            "Meat Feast Pizza",
+            "Chicken Pizza"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-030",
+          "subcategory_name": "Chilled Desserts",
+          "product_count": 45,
+          "storage_type": "CHILLED",
+          "perishable_flag": true,
+          "age_restricted_flag": false,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 5,
+            "maximum": 30
+          },
+          "retail_price": {
+            "minimum": 0.8,
+            "maximum": 8.0
+          },
+          "unit_options": [
+            "PACK"
+          ],
+          "package_options": [
+            "Single",
+            "2 Pack",
+            "4 Pack",
+            "400g"
+          ],
+          "name_terms": [
+            "Chocolate Dessert",
+            "Cheesecake",
+            "Trifle",
+            "Rice Pudding",
+            "Mousse",
+            "Fruit Dessert"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-031",
+          "subcategory_name": "Yoghurts",
+          "product_count": 55,
+          "storage_type": "CHILLED",
+          "perishable_flag": true,
+          "age_restricted_flag": false,
+          "vat_rate": 0.0,
+          "shelf_life_days": {
+            "minimum": 7,
+            "maximum": 45
+          },
+          "retail_price": {
+            "minimum": 0.4,
+            "maximum": 7.0
+          },
+          "unit_options": [
+            "PACK",
+            "GRAM"
+          ],
+          "package_options": [
+            "125g",
+            "450g",
+            "4 Pack",
+            "6 Pack"
+          ],
+          "name_terms": [
+            "Natural Yoghurt",
+            "Greek Yoghurt",
+            "Strawberry Yoghurt",
+            "Vanilla Yoghurt",
+            "Fruit Yoghurt",
+            "Low-Fat Yoghurt"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-032",
+          "subcategory_name": "Chilled Drinks",
+          "product_count": 45,
+          "storage_type": "CHILLED",
+          "perishable_flag": true,
+          "age_restricted_flag": false,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 5,
+            "maximum": 45
+          },
+          "retail_price": {
+            "minimum": 0.8,
+            "maximum": 7.0
+          },
+          "unit_options": [
+            "MILLILITRE",
+            "LITRE"
+          ],
+          "package_options": [
+            "250ml",
+            "500ml",
+            "750ml",
+            "1 Litre"
+          ],
+          "name_terms": [
+            "Fresh Orange Juice",
+            "Smoothie",
+            "Milk Drink",
+            "Iced Coffee",
+            "Protein Drink",
+            "Fresh Apple Juice"
+          ]
+        }
+      ]
+    },
+    {
+      "category_code": "CAT-05",
+      "category_name": "Household and Personal Care",
+      "product_count": 340,
+      "subcategories": [
+        {
+          "subcategory_code": "SUB-033",
+          "subcategory_name": "Cleaning",
+          "product_count": 50,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 365,
+            "maximum": 1825
+          },
+          "retail_price": {
+            "minimum": 0.8,
+            "maximum": 12.0
+          },
+          "unit_options": [
+            "EACH",
+            "MILLILITRE"
+          ],
+          "package_options": [
+            "500ml",
+            "750ml",
+            "1 Litre",
+            "20 Pack"
+          ],
+          "name_terms": [
+            "Multi-Surface Cleaner",
+            "Kitchen Cleaner",
+            "Bathroom Cleaner",
+            "Disinfectant",
+            "Glass Cleaner",
+            "Cleaning Wipes"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-034",
+          "subcategory_name": "Laundry",
+          "product_count": 45,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 365,
+            "maximum": 1825
+          },
+          "retail_price": {
+            "minimum": 2.0,
+            "maximum": 20.0
+          },
+          "unit_options": [
+            "PACK",
+            "MILLILITRE"
+          ],
+          "package_options": [
+            "20 Washes",
+            "40 Washes",
+            "60 Washes",
+            "1 Litre",
+            "2 Litre"
+          ],
+          "name_terms": [
+            "Laundry Liquid",
+            "Washing Powder",
+            "Laundry Capsules",
+            "Fabric Conditioner",
+            "Stain Remover",
+            "Colour Protector"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-035",
+          "subcategory_name": "Paper Products",
+          "product_count": 45,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 730,
+            "maximum": 3650
+          },
+          "retail_price": {
+            "minimum": 1.0,
+            "maximum": 18.0
+          },
+          "unit_options": [
+            "PACK"
+          ],
+          "package_options": [
+            "2 Pack",
+            "4 Pack",
+            "9 Pack",
+            "12 Pack",
+            "24 Pack"
+          ],
+          "name_terms": [
+            "Toilet Tissue",
+            "Kitchen Roll",
+            "Facial Tissues",
+            "Paper Napkins",
+            "Recycled Toilet Tissue"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-036",
+          "subcategory_name": "Toiletries",
+          "product_count": 45,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 365,
+            "maximum": 1825
+          },
+          "retail_price": {
+            "minimum": 0.7,
+            "maximum": 15.0
+          },
+          "unit_options": [
+            "EACH",
+            "MILLILITRE"
+          ],
+          "package_options": [
+            "50ml",
+            "250ml",
+            "500ml",
+            "2 Pack"
+          ],
+          "name_terms": [
+            "Shower Gel",
+            "Hand Wash",
+            "Body Lotion",
+            "Deodorant",
+            "Bath Foam",
+            "Soap"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-037",
+          "subcategory_name": "Hair Care",
+          "product_count": 40,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 365,
+            "maximum": 1825
+          },
+          "retail_price": {
+            "minimum": 1.0,
+            "maximum": 18.0
+          },
+          "unit_options": [
+            "MILLILITRE"
+          ],
+          "package_options": [
+            "200ml",
+            "300ml",
+            "500ml"
+          ],
+          "name_terms": [
+            "Shampoo",
+            "Conditioner",
+            "Hair Treatment",
+            "Hair Gel",
+            "Hair Spray",
+            "Scalp Care"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-038",
+          "subcategory_name": "Oral Care",
+          "product_count": 40,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 365,
+            "maximum": 1825
+          },
+          "retail_price": {
+            "minimum": 0.8,
+            "maximum": 15.0
+          },
+          "unit_options": [
+            "EACH",
+            "PACK",
+            "MILLILITRE"
+          ],
+          "package_options": [
+            "75ml",
+            "100ml",
+            "250ml",
+            "2 Pack"
+          ],
+          "name_terms": [
+            "Toothpaste",
+            "Toothbrush",
+            "Mouthwash",
+            "Dental Floss",
+            "Sensitive Toothpaste",
+            "Whitening Toothpaste"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-039",
+          "subcategory_name": "Baby Care",
+          "product_count": 35,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 365,
+            "maximum": 1825
+          },
+          "retail_price": {
+            "minimum": 1.0,
+            "maximum": 25.0
+          },
+          "unit_options": [
+            "EACH",
+            "PACK",
+            "MILLILITRE"
+          ],
+          "package_options": [
+            "56 Pack",
+            "72 Pack",
+            "200ml",
+            "500ml"
+          ],
+          "name_terms": [
+            "Baby Wipes",
+            "Nappies",
+            "Baby Shampoo",
+            "Baby Lotion",
+            "Baby Wash",
+            "Nappy Cream"
+          ]
+        },
+        {
+          "subcategory_code": "SUB-040",
+          "subcategory_name": "Pet Care",
+          "product_count": 40,
+          "storage_type": "AMBIENT",
+          "perishable_flag": false,
+          "age_restricted_flag": false,
+          "vat_rate": 0.2,
+          "shelf_life_days": {
+            "minimum": 180,
+            "maximum": 1095
+          },
+          "retail_price": {
+            "minimum": 0.7,
+            "maximum": 30.0
+          },
+          "unit_options": [
+            "PACK",
+            "KILOGRAM"
+          ],
+          "package_options": [
+            "400g",
+            "1kg",
+            "2kg",
+            "6 Pack",
+            "12 Pack"
+          ],
+          "name_terms": [
+            "Dog Food",
+            "Cat Food",
+            "Dog Treats",
+            "Cat Treats",
+            "Pet Litter",
+            "Pet Shampoo"
+          ]
+        }
+      ]
+    }
+  ]
+}

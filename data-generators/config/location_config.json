@@ -1,0 +1,423 @@
+{
+  "project": {
+    "company_name": "BritMart",
+    "dataset_version": "1.0.0",
+    "master_seed": 20260816,
+    "uuid_namespace": "6f3f2d6a-75b1-5f12-9a76-0de2a31bd8d0",
+    "generated_timestamp": "2026-08-16T00:00:00Z"
+  },
+  "expected_counts": {
+    "regions": 12,
+    "distribution_centres": 6,
+    "stores": 120
+  },
+  "store_formats": {
+    "SUPERSTORE": {
+      "count": 30,
+      "minimum_floor_area_square_metres": 4000,
+      "maximum_floor_area_square_metres": 9000,
+      "sales_weight": 2.5,
+      "online_collection_probability": 1.0,
+      "home_delivery_probability": 0.95
+    },
+    "SUPERMARKET": {
+      "count": 60,
+      "minimum_floor_area_square_metres": 1500,
+      "maximum_floor_area_square_metres": 4500,
+      "sales_weight": 1.5,
+      "online_collection_probability": 0.8,
+      "home_delivery_probability": 0.7
+    },
+    "CONVENIENCE": {
+      "count": 30,
+      "minimum_floor_area_square_metres": 150,
+      "maximum_floor_area_square_metres": 600,
+      "sales_weight": 0.6,
+      "online_collection_probability": 0.2,
+      "home_delivery_probability": 0.1
+    }
+  },
+  "regions": [
+    {
+      "region_code": "REG-001",
+      "region_name": "London",
+      "country_name": "England",
+      "store_count": 20,
+      "primary_distribution_centre_code": "DC-004",
+      "city_pool": [
+        "London",
+        "Croydon",
+        "Enfield",
+        "Harrow",
+        "Romford",
+        "Bromley",
+        "Wembley",
+        "Sutton"
+      ],
+      "postcode_area_pool": [
+        "E",
+        "EC",
+        "N",
+        "NW",
+        "SE",
+        "SW",
+        "W",
+        "WC",
+        "CR",
+        "EN",
+        "HA",
+        "RM",
+        "BR",
+        "SM"
+      ]
+    },
+    {
+      "region_code": "REG-002",
+      "region_name": "South East England",
+      "country_name": "England",
+      "store_count": 15,
+      "primary_distribution_centre_code": "DC-004",
+      "city_pool": [
+        "Brighton",
+        "Reading",
+        "Oxford",
+        "Guildford",
+        "Southampton",
+        "Portsmouth",
+        "Milton Keynes",
+        "Maidstone"
+      ],
+      "postcode_area_pool": [
+        "BN",
+        "RG",
+        "OX",
+        "GU",
+        "SO",
+        "PO",
+        "MK",
+        "ME"
+      ]
+    },
+    {
+      "region_code": "REG-003",
+      "region_name": "North West England",
+      "country_name": "England",
+      "store_count": 13,
+      "primary_distribution_centre_code": "DC-001",
+      "city_pool": [
+        "Manchester",
+        "Liverpool",
+        "Warrington",
+        "Preston",
+        "Blackpool",
+        "Chester",
+        "Bolton",
+        "Stockport"
+      ],
+      "postcode_area_pool": [
+        "M",
+        "L",
+        "WA",
+        "PR",
+        "FY",
+        "CH",
+        "BL",
+        "SK"
+      ]
+    },
+    {
+      "region_code": "REG-004",
+      "region_name": "West Midlands",
+      "country_name": "England",
+      "store_count": 11,
+      "primary_distribution_centre_code": "DC-002",
+      "city_pool": [
+        "Birmingham",
+        "Coventry",
+        "Wolverhampton",
+        "Solihull",
+        "Walsall",
+        "Dudley",
+        "Stoke-on-Trent"
+      ],
+      "postcode_area_pool": [
+        "B",
+        "CV",
+        "WV",
+        "WS",
+        "DY",
+        "ST"
+      ]
+    },
+    {
+      "region_code": "REG-005",
+      "region_name": "Yorkshire and the Humber",
+      "country_name": "England",
+      "store_count": 11,
+      "primary_distribution_centre_code": "DC-003",
+      "city_pool": [
+        "Leeds",
+        "Sheffield",
+        "Bradford",
+        "Hull",
+        "York",
+        "Doncaster",
+        "Wakefield",
+        "Huddersfield"
+      ],
+      "postcode_area_pool": [
+        "LS",
+        "S",
+        "BD",
+        "HU",
+        "YO",
+        "DN",
+        "WF",
+        "HD"
+      ]
+    },
+    {
+      "region_code": "REG-006",
+      "region_name": "East of England",
+      "country_name": "England",
+      "store_count": 10,
+      "primary_distribution_centre_code": "DC-004",
+      "city_pool": [
+        "Norwich",
+        "Cambridge",
+        "Peterborough",
+        "Chelmsford",
+        "Luton",
+        "Ipswich",
+        "Watford"
+      ],
+      "postcode_area_pool": [
+        "NR",
+        "CB",
+        "PE",
+        "CM",
+        "LU",
+        "IP",
+        "WD"
+      ]
+    },
+    {
+      "region_code": "REG-007",
+      "region_name": "South West England",
+      "country_name": "England",
+      "store_count": 10,
+      "primary_distribution_centre_code": "DC-005",
+      "city_pool": [
+        "Bristol",
+        "Plymouth",
+        "Exeter",
+        "Bournemouth",
+        "Gloucester",
+        "Swindon",
+        "Bath"
+      ],
+      "postcode_area_pool": [
+        "BS",
+        "PL",
+        "EX",
+        "BH",
+        "GL",
+        "SN",
+        "BA"
+      ]
+    },
+    {
+      "region_code": "REG-008",
+      "region_name": "East Midlands",
+      "country_name": "England",
+      "store_count": 9,
+      "primary_distribution_centre_code": "DC-002",
+      "city_pool": [
+        "Nottingham",
+        "Leicester",
+        "Derby",
+        "Northampton",
+        "Lincoln",
+        "Mansfield"
+      ],
+      "postcode_area_pool": [
+        "NG",
+        "LE",
+        "DE",
+        "NN",
+        "LN"
+      ]
+    },
+    {
+      "region_code": "REG-009",
+      "region_name": "North East England",
+      "country_name": "England",
+      "store_count": 6,
+      "primary_distribution_centre_code": "DC-003",
+      "city_pool": [
+        "Newcastle upon Tyne",
+        "Sunderland",
+        "Durham",
+        "Middlesbrough",
+        "Darlington",
+        "Gateshead"
+      ],
+      "postcode_area_pool": [
+        "NE",
+        "SR",
+        "DH",
+        "TS",
+        "DL"
+      ]
+    },
+    {
+      "region_code": "REG-010",
+      "region_name": "Wales",
+      "country_name": "Wales",
+      "store_count": 6,
+      "primary_distribution_centre_code": "DC-005",
+      "city_pool": [
+        "Cardiff",
+        "Swansea",
+        "Newport",
+        "Wrexham",
+        "Bangor"
+      ],
+      "postcode_area_pool": [
+        "CF",
+        "SA",
+        "NP",
+        "LL"
+      ]
+    },
+    {
+      "region_code": "REG-011",
+      "region_name": "Scotland",
+      "country_name": "Scotland",
+      "store_count": 7,
+      "primary_distribution_centre_code": "DC-006",
+      "city_pool": [
+        "Glasgow",
+        "Edinburgh",
+        "Aberdeen",
+        "Dundee",
+        "Stirling",
+        "Inverness"
+      ],
+      "postcode_area_pool": [
+        "G",
+        "EH",
+        "AB",
+        "DD",
+        "FK",
+        "IV"
+      ]
+    },
+    {
+      "region_code": "REG-012",
+      "region_name": "Northern Ireland",
+      "country_name": "Northern Ireland",
+      "store_count": 2,
+      "primary_distribution_centre_code": "DC-001",
+      "city_pool": [
+        "Belfast",
+        "Derry"
+      ],
+      "postcode_area_pool": [
+        "BT"
+      ]
+    }
+  ],
+  "distribution_centres": [
+    {
+      "distribution_centre_code": "DC-001",
+      "distribution_centre_name": "BritMart North West Distribution Centre",
+      "region_code": "REG-003",
+      "location_area": "Warrington",
+      "postcode_area": "WA",
+      "latitude": 53.3900,
+      "longitude": -2.5900,
+      "supports_ambient": true,
+      "supports_chilled": true,
+      "supports_frozen": true,
+      "daily_receiving_capacity_cases": 180000,
+      "daily_dispatch_capacity_cases": 175000,
+      "opened_date": "2016-04-01"
+    },
+    {
+      "distribution_centre_code": "DC-002",
+      "distribution_centre_name": "BritMart Midlands Distribution Centre",
+      "region_code": "REG-004",
+      "location_area": "Rugby",
+      "postcode_area": "CV",
+      "latitude": 52.3700,
+      "longitude": -1.2600,
+      "supports_ambient": true,
+      "supports_chilled": true,
+      "supports_frozen": true,
+      "daily_receiving_capacity_cases": 210000,
+      "daily_dispatch_capacity_cases": 205000,
+      "opened_date": "2014-09-15"
+    },
+    {
+      "distribution_centre_code": "DC-003",
+      "distribution_centre_name": "BritMart Yorkshire Distribution Centre",
+      "region_code": "REG-005",
+      "location_area": "Doncaster",
+      "postcode_area": "DN",
+      "latitude": 53.5200,
+      "longitude": -1.1300,
+      "supports_ambient": true,
+      "supports_chilled": true,
+      "supports_frozen": true,
+      "daily_receiving_capacity_cases": 175000,
+      "daily_dispatch_capacity_cases": 170000,
+      "opened_date": "2017-02-20"
+    },
+    {
+      "distribution_centre_code": "DC-004",
+      "distribution_centre_name": "BritMart South East Distribution Centre",
+      "region_code": "REG-002",
+      "location_area": "Thurrock",
+      "postcode_area": "RM",
+      "latitude": 51.4800,
+      "longitude": 0.3000,
+      "supports_ambient": true,
+      "supports_chilled": true,
+      "supports_frozen": true,
+      "daily_receiving_capacity_cases": 260000,
+      "daily_dispatch_capacity_cases": 255000,
+      "opened_date": "2013-06-10"
+    },
+    {
+      "distribution_centre_code": "DC-005",
+      "distribution_centre_name": "BritMart South West Distribution Centre",
+      "region_code": "REG-007",
+      "location_area": "Bristol",
+      "postcode_area": "BS",
+      "latitude": 51.5000,
+      "longitude": -2.5700,
+      "supports_ambient": true,
+      "supports_chilled": true,
+      "supports_frozen": false,
+      "daily_receiving_capacity_cases": 150000,
+      "daily_dispatch_capacity_cases": 145000,
+      "opened_date": "2018-11-05"
+    },
+    {
+      "distribution_centre_code": "DC-006",
+      "distribution_centre_name": "BritMart Scotland Distribution Centre",
+      "region_code": "REG-011",
+      "location_area": "Livingston",
+      "postcode_area": "EH",
+      "latitude": 55.8800,
+      "longitude": -3.5200,
+      "supports_ambient": true,
+      "supports_chilled": true,
+      "supports_frozen": false,
+      "daily_receiving_capacity_cases": 120000,
+      "daily_dispatch_capacity_cases": 115000,
+      "opened_date": "2019-03-18"
+    }
+  ]
+}

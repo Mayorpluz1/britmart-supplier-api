@@ -1,0 +1,192 @@
+{
+  "schema_version": "1.0.0",
+  "generator_name": "BritMart Supplier Performance Generator",
+  "random_seed": 20260818,
+  "generation_timestamp_utc": "2026-08-18T00:00:00Z",
+  "evaluation_as_of_date": "2026-08-16",
+
+  "input_files": {
+    "suppliers": "suppliers.csv",
+    "purchase_orders": "purchase_orders.csv",
+    "purchase_order_lines": "purchase_order_lines.csv",
+    "shipments": "shipments.csv",
+    "shipment_lines": "shipment_lines.csv",
+    "goods_receipts": "warehouse_goods_receipts.csv",
+    "goods_receipt_lines": "warehouse_goods_receipt_lines.csv"
+  },
+
+  "output_files": {
+    "performance_events": "supplier_performance_events.csv",
+    "monthly_performance": "supplier_performance_monthly.csv",
+    "manifest": "supplier_performance_manifest.json"
+  },
+
+  "evaluation_rules": {
+    "on_time_delivery_statuses": [
+      "EARLY",
+      "ON_TIME"
+    ],
+    "late_delivery_statuses": [
+      "LATE"
+    ],
+    "purchase_order_statuses_eligible_for_otif": [
+      "CLOSED",
+      "PARTIALLY_RECEIVED"
+    ],
+    "in_full_tolerance_rate": 0.999,
+    "minimum_deliveries_for_monthly_rating": 1,
+    "accepted_quality_target_rate": 0.985,
+    "otif_target_rate": 0.950,
+    "on_time_target_rate": 0.950,
+    "in_full_target_rate": 0.980,
+    "maximum_damage_rate": 0.015,
+    "maximum_rejection_rate": 0.010,
+    "maximum_temperature_breach_rate": 0.010
+  },
+
+  "score_weights": {
+    "otif_rate": 0.35,
+    "on_time_delivery_rate": 0.20,
+    "in_full_rate": 0.20,
+    "accepted_quality_rate": 0.20,
+    "temperature_compliance_rate": 0.05
+  },
+
+  "rating_thresholds": {
+    "EXCELLENT": 95.0,
+    "GOOD": 85.0,
+    "WATCH": 70.0,
+    "HIGH_RISK": 0.0
+  },
+
+  "event_definitions": {
+    "DELIVERY_EARLY": {
+      "event_category": "DELIVERY",
+      "severity": "INFO",
+      "score_impact": 0
+    },
+    "DELIVERY_ON_TIME": {
+      "event_category": "DELIVERY",
+      "severity": "INFO",
+      "score_impact": 0
+    },
+    "DELIVERY_LATE": {
+      "event_category": "DELIVERY",
+      "severity": "WARNING",
+      "score_impact": -5
+    },
+    "OTIF_PASS": {
+      "event_category": "SERVICE_LEVEL",
+      "severity": "INFO",
+      "score_impact": 0
+    },
+    "OTIF_FAIL_LATE": {
+      "event_category": "SERVICE_LEVEL",
+      "severity": "WARNING",
+      "score_impact": -5
+    },
+    "OTIF_FAIL_INCOMPLETE": {
+      "event_category": "SERVICE_LEVEL",
+      "severity": "WARNING",
+      "score_impact": -5
+    },
+    "OTIF_FAIL_LATE_AND_INCOMPLETE": {
+      "event_category": "SERVICE_LEVEL",
+      "severity": "CRITICAL",
+      "score_impact": -10
+    },
+    "DAMAGED_GOODS": {
+      "event_category": "QUALITY",
+      "severity": "WARNING",
+      "score_impact": -3
+    },
+    "REJECTED_GOODS": {
+      "event_category": "QUALITY",
+      "severity": "CRITICAL",
+      "score_impact": -5
+    },
+    "TEMPERATURE_BREACH": {
+      "event_category": "COLD_CHAIN",
+      "severity": "CRITICAL",
+      "score_impact": -10
+    }
+  },
+
+  "event_business_keys": {
+    "delivery_event": [
+      "supplier_id",
+      "shipment_id",
+      "event_type"
+    ],
+    "otif_event": [
+      "supplier_id",
+      "purchase_order_id",
+      "event_type"
+    ],
+    "quality_event": [
+      "supplier_id",
+      "goods_receipt_id",
+      "event_type"
+    ],
+    "temperature_event": [
+      "supplier_id",
+      "shipment_id",
+      "event_type"
+    ]
+  },
+
+  "monthly_business_key": [
+    "supplier_id",
+    "performance_month"
+  ],
+
+  "risk_rules": {
+    "late_delivery_warning_count": 3,
+    "quality_incident_warning_count": 2,
+    "temperature_breach_critical_count": 1,
+    "high_risk_rating": "HIGH_RISK",
+    "watch_rating": "WATCH"
+  },
+
+  "fabric_incremental_extraction": {
+    "event_watermark_column": "updated_at",
+    "event_tie_breaker_column": "supplier_performance_event_id",
+    "monthly_watermark_column": "updated_at",
+    "monthly_tie_breaker_column": "supplier_performance_monthly_id",
+    "timestamp_timezone": "UTC",
+    "default_page_size": 100,
+    "maximum_page_size": 1000,
+    "supports_updated_since": true
+  },
+
+  "reconciliation_rules": {
+    "delivery_event_must_reference_valid_delivered_shipment": true,
+    "otif_event_must_reference_valid_purchase_order": true,
+    "quality_event_must_reference_valid_goods_receipt": true,
+    "temperature_event_must_reference_valid_shipment": true,
+    "monthly_delivery_count_must_match_delivered_shipments": true,
+    "monthly_received_quantity_must_match_goods_receipts": true,
+    "monthly_quality_quantities_must_reconcile": true,
+    "monthly_event_counts_must_match_event_data": true,
+    "monthly_score_must_be_derived_from_component_metrics": true
+  },
+
+  "expected_validation_domains": [
+    "FILE_EXISTENCE",
+    "SCHEMA",
+    "UNIQUENESS",
+    "IDEMPOTENCY",
+    "REFERENTIAL_INTEGRITY",
+    "DELIVERY_EVENT_RECONCILIATION",
+    "OTIF_RECONCILIATION",
+    "QUALITY_EVENT_RECONCILIATION",
+    "TEMPERATURE_EVENT_RECONCILIATION",
+    "MONTHLY_AGGREGATION",
+    "SCORE_CALCULATION",
+    "RATING_CALCULATION",
+    "RISK_CLASSIFICATION",
+    "UTC_TIMESTAMP_VALIDATION",
+    "MANIFEST_INTEGRITY",
+    "REPRODUCIBILITY"
+  ]
+}

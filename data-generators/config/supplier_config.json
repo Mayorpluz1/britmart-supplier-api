@@ -1,0 +1,435 @@
+{
+  "project": {
+    "company_name": "BritMart",
+    "dataset_version": "1.0.0",
+    "master_seed": 20260816,
+    "uuid_namespace": "6f3f2d6a-75b1-5f12-9a76-0de2a31bd8d0",
+    "generated_timestamp": "2026-08-16T00:00:00Z"
+  },
+  "expected_counts": {
+    "suppliers": 50
+  },
+  "origin_group_distribution": {
+    "GB": 0.68,
+    "EU": 0.2,
+    "OTHER": 0.12
+  },
+  "supplier_status_distribution": {
+    "ACTIVE": 0.92,
+    "SUSPENDED": 0.04,
+    "PENDING": 0.02,
+    "INACTIVE": 0.02
+  },
+  "risk_rating_distribution": {
+    "LOW": 0.4,
+    "MEDIUM": 0.44,
+    "HIGH": 0.14,
+    "CRITICAL": 0.02
+  },
+  "countries": {
+    "GB": [
+      {
+        "country_code": "GB",
+        "currency_code": "GBP",
+        "lead_time_minimum_days": 1,
+        "lead_time_maximum_days": 10
+      }
+    ],
+    "EU": [
+      {
+        "country_code": "IE",
+        "currency_code": "EUR",
+        "lead_time_minimum_days": 3,
+        "lead_time_maximum_days": 10
+      },
+      {
+        "country_code": "FR",
+        "currency_code": "EUR",
+        "lead_time_minimum_days": 5,
+        "lead_time_maximum_days": 12
+      },
+      {
+        "country_code": "ES",
+        "currency_code": "EUR",
+        "lead_time_minimum_days": 6,
+        "lead_time_maximum_days": 15
+      },
+      {
+        "country_code": "IT",
+        "currency_code": "EUR",
+        "lead_time_minimum_days": 7,
+        "lead_time_maximum_days": 15
+      },
+      {
+        "country_code": "DE",
+        "currency_code": "EUR",
+        "lead_time_minimum_days": 5,
+        "lead_time_maximum_days": 12
+      },
+      {
+        "country_code": "NL",
+        "currency_code": "EUR",
+        "lead_time_minimum_days": 4,
+        "lead_time_maximum_days": 10
+      },
+      {
+        "country_code": "BE",
+        "currency_code": "EUR",
+        "lead_time_minimum_days": 4,
+        "lead_time_maximum_days": 10
+      },
+      {
+        "country_code": "PL",
+        "currency_code": "EUR",
+        "lead_time_minimum_days": 7,
+        "lead_time_maximum_days": 16
+      },
+      {
+        "country_code": "PT",
+        "currency_code": "EUR",
+        "lead_time_minimum_days": 7,
+        "lead_time_maximum_days": 16
+      },
+      {
+        "country_code": "GR",
+        "currency_code": "EUR",
+        "lead_time_minimum_days": 8,
+        "lead_time_maximum_days": 18
+      }
+    ],
+    "OTHER": [
+      {
+        "country_code": "BR",
+        "currency_code": "USD",
+        "lead_time_minimum_days": 18,
+        "lead_time_maximum_days": 40
+      },
+      {
+        "country_code": "ZA",
+        "currency_code": "USD",
+        "lead_time_minimum_days": 16,
+        "lead_time_maximum_days": 35
+      },
+      {
+        "country_code": "MA",
+        "currency_code": "EUR",
+        "lead_time_minimum_days": 10,
+        "lead_time_maximum_days": 24
+      },
+      {
+        "country_code": "KE",
+        "currency_code": "USD",
+        "lead_time_minimum_days": 12,
+        "lead_time_maximum_days": 28
+      },
+      {
+        "country_code": "IN",
+        "currency_code": "USD",
+        "lead_time_minimum_days": 20,
+        "lead_time_maximum_days": 45
+      },
+      {
+        "country_code": "TH",
+        "currency_code": "USD",
+        "lead_time_minimum_days": 20,
+        "lead_time_maximum_days": 45
+      },
+      {
+        "country_code": "NZ",
+        "currency_code": "NZD",
+        "lead_time_minimum_days": 25,
+        "lead_time_maximum_days": 45
+      },
+      {
+        "country_code": "AU",
+        "currency_code": "AUD",
+        "lead_time_minimum_days": 25,
+        "lead_time_maximum_days": 45
+      },
+      {
+        "country_code": "TR",
+        "currency_code": "EUR",
+        "lead_time_minimum_days": 12,
+        "lead_time_maximum_days": 28
+      },
+      {
+        "country_code": "CR",
+        "currency_code": "USD",
+        "lead_time_minimum_days": 18,
+        "lead_time_maximum_days": 38
+      }
+    ]
+  },
+  "supplier_types": [
+    {
+      "supplier_type": "FRESH_PRODUCE_SUPPLIER",
+      "count": 6,
+      "category_codes": [
+        "CAT-01"
+      ],
+      "supports_ambient": true,
+      "supports_chilled": true,
+      "supports_frozen": false,
+      "minimum_order_value": {
+        "minimum": 1000,
+        "maximum": 8000
+      },
+      "name_terms": [
+        "Green Orchard",
+        "Fresh Harvest",
+        "Valley Produce",
+        "Garden Fields",
+        "Prime Produce",
+        "Sunrise Farms"
+      ]
+    },
+    {
+      "supplier_type": "MEAT_AND_POULTRY_SUPPLIER",
+      "count": 5,
+      "category_codes": [
+        "CAT-01",
+        "CAT-04"
+      ],
+      "supports_ambient": false,
+      "supports_chilled": true,
+      "supports_frozen": true,
+      "minimum_order_value": {
+        "minimum": 2500,
+        "maximum": 15000
+      },
+      "name_terms": [
+        "Red Meadow",
+        "Country Butchers",
+        "Heritage Meats",
+        "Prime Cuts",
+        "Farmstead Protein"
+      ]
+    },
+    {
+      "supplier_type": "DAIRY_SUPPLIER",
+      "count": 4,
+      "category_codes": [
+        "CAT-01",
+        "CAT-04"
+      ],
+      "supports_ambient": false,
+      "supports_chilled": true,
+      "supports_frozen": false,
+      "minimum_order_value": {
+        "minimum": 1800,
+        "maximum": 12000
+      },
+      "name_terms": [
+        "Blue Meadow Dairy",
+        "Silver Dale Dairy",
+        "Morning Milk",
+        "Cream Valley"
+      ]
+    },
+    {
+      "supplier_type": "BAKERY_SUPPLIER",
+      "count": 4,
+      "category_codes": [
+        "CAT-01"
+      ],
+      "supports_ambient": true,
+      "supports_chilled": true,
+      "supports_frozen": false,
+      "minimum_order_value": {
+        "minimum": 800,
+        "maximum": 7000
+      },
+      "name_terms": [
+        "Golden Grain",
+        "Morning Oven",
+        "Heritage Bakery",
+        "Daily Loaf"
+      ]
+    },
+    {
+      "supplier_type": "GROCERY_MANUFACTURER",
+      "count": 7,
+      "category_codes": [
+        "CAT-02"
+      ],
+      "supports_ambient": true,
+      "supports_chilled": false,
+      "supports_frozen": false,
+      "minimum_order_value": {
+        "minimum": 2000,
+        "maximum": 20000
+      },
+      "name_terms": [
+        "Harvest Pantry",
+        "Oakfield Grocery",
+        "Crown Foods",
+        "Kitchen Table",
+        "Pantry House",
+        "Green Hearth",
+        "Everyday Foods"
+      ]
+    },
+    {
+      "supplier_type": "BEVERAGE_MANUFACTURER",
+      "count": 5,
+      "category_codes": [
+        "CAT-03"
+      ],
+      "supports_ambient": true,
+      "supports_chilled": true,
+      "supports_frozen": false,
+      "minimum_order_value": {
+        "minimum": 2500,
+        "maximum": 25000
+      },
+      "name_terms": [
+        "Clear Spring Drinks",
+        "Northstar Beverages",
+        "River Valley Drinks",
+        "Crown Bottling",
+        "Pure Source"
+      ]
+    },
+    {
+      "supplier_type": "FROZEN_FOOD_SUPPLIER",
+      "count": 4,
+      "category_codes": [
+        "CAT-04"
+      ],
+      "supports_ambient": false,
+      "supports_chilled": true,
+      "supports_frozen": true,
+      "minimum_order_value": {
+        "minimum": 3000,
+        "maximum": 20000
+      },
+      "name_terms": [
+        "Northern Freeze",
+        "Polar Kitchen",
+        "Frozen Harvest",
+        "Arctic Table"
+      ]
+    },
+    {
+      "supplier_type": "HOUSEHOLD_GOODS_MANUFACTURER",
+      "count": 4,
+      "category_codes": [
+        "CAT-05"
+      ],
+      "supports_ambient": true,
+      "supports_chilled": false,
+      "supports_frozen": false,
+      "minimum_order_value": {
+        "minimum": 2000,
+        "maximum": 18000
+      },
+      "name_terms": [
+        "Pure Home",
+        "Bright House",
+        "Clean Living",
+        "Home Essentials"
+      ]
+    },
+    {
+      "supplier_type": "PERSONAL_CARE_SUPPLIER",
+      "count": 3,
+      "category_codes": [
+        "CAT-05"
+      ],
+      "supports_ambient": true,
+      "supports_chilled": false,
+      "supports_frozen": false,
+      "minimum_order_value": {
+        "minimum": 1500,
+        "maximum": 15000
+      },
+      "name_terms": [
+        "Pure Haven Care",
+        "Wellbeing House",
+        "Everyday Care"
+      ]
+    },
+    {
+      "supplier_type": "IMPORTER_AND_DISTRIBUTOR",
+      "count": 5,
+      "category_codes": [
+        "CAT-01",
+        "CAT-02",
+        "CAT-03",
+        "CAT-04",
+        "CAT-05"
+      ],
+      "supports_ambient": true,
+      "supports_chilled": true,
+      "supports_frozen": true,
+      "minimum_order_value": {
+        "minimum": 5000,
+        "maximum": 35000
+      },
+      "name_terms": [
+        "Global Merchant",
+        "Continental Supply",
+        "World Market Distribution",
+        "International Foods",
+        "Global Retail Supply"
+      ]
+    },
+    {
+      "supplier_type": "REGIONAL_SPECIALIST_SUPPLIER",
+      "count": 3,
+      "category_codes": [
+        "CAT-01",
+        "CAT-02",
+        "CAT-03"
+      ],
+      "supports_ambient": true,
+      "supports_chilled": true,
+      "supports_frozen": false,
+      "minimum_order_value": {
+        "minimum": 500,
+        "maximum": 6000
+      },
+      "name_terms": [
+        "Pennine Specialities",
+        "Highland Table",
+        "Welsh Valley Foods"
+      ]
+    }
+  ],
+  "company_suffixes": [
+    "Limited",
+    "Foods Limited",
+    "Supply Limited",
+    "Manufacturing Limited",
+    "Distribution Limited"
+  ],
+  "performance_targets": {
+    "otif_rate": {
+      "minimum": 0.88,
+      "maximum": 0.98
+    },
+    "quality_acceptance_rate": {
+      "minimum": 0.97,
+      "maximum": 0.999
+    }
+  },
+  "commercial_rules": {
+    "payment_terms_options_days": [
+      14,
+      30,
+      45,
+      60
+    ],
+    "international_incoterms": [
+      "DAP",
+      "FCA",
+      "CPT",
+      "DDP"
+    ],
+    "domestic_incoterms": [
+      "DAP",
+      "DDP"
+    ],
+    "effective_from": "2025-07-01"
+  }
+}

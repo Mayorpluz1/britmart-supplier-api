@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.0.0",
+  "generator_name": "BritMart Supplier Shipment Generator",
+  "random_seed": 20260816,
+  "generation_timestamp_utc": "2026-08-16T00:00:00Z",
+
+  "input_files": {
+    "purchase_orders": "purchase_orders.csv",
+    "purchase_order_lines": "purchase_order_lines.csv",
+    "suppliers": "suppliers.csv",
+    "products": "products.csv",
+    "supplier_products": "supplier_products.csv",
+    "distribution_centres": "distribution_centres.csv"
+  },
+
+  "output_files": {
+    "shipments": "shipments.csv",
+    "shipment_lines": "shipment_lines.csv",
+    "shipment_status_history": "shipment_status_history.csv",
+    "manifest": "shipment_manifest.json"
+  },
+
+  "eligible_purchase_order_statuses": [
+    "APPROVED",
+    "CONFIRMED",
+    "DISPATCHED",
+    "PARTIALLY_RECEIVED",
+    "CLOSED"
+  ],
+
+  "ineligible_purchase_order_statuses": [
+    "DRAFT",
+    "CANCELLED"
+  ],
+
+  "shipment_status_distribution": {
+    "PLANNED": 0.04,
+    "DISPATCHED": 0.06,
+    "IN_TRANSIT": 0.10,
+    "DELIVERED": 0.77,
+    "CANCELLED": 0.03
+  },
+
+  "delivery_performance_distribution": {
+    "EARLY": 0.08,
+    "ON_TIME": 0.77,
+    "LATE": 0.15
+  },
+
+  "shipment_fulfilment_distribution": {
+    "FULL": 0.82,
+    "PARTIAL": 0.18
+  },
+
+  "split_shipment": {
+    "enabled": true,
+    "eligible_order_rate": 0.18,
+    "minimum_shipments_per_order": 2,
+    "maximum_shipments_per_order": 3
+  },
+
+  "shipment_timing": {
+    "minimum_dispatch_delay_days": 1,
+    "maximum_dispatch_delay_days": 7,
+    "minimum_transit_days": 1,
+    "maximum_transit_days": 6,
+    "early_delivery_minimum_days": 1,
+    "early_delivery_maximum_days": 2,
+    "late_delivery_minimum_days": 1,
+    "late_delivery_maximum_days": 8
+  },
+
+  "quantity_rules": {
+    "partial_shipment_minimum_rate": 0.40,
+    "partial_shipment_maximum_rate": 0.90,
+    "minimum_shipped_quantity": 1,
+    "damaged_line_rate": 0.025,
+    "rejected_line_rate": 0.015,
+    "maximum_damaged_quantity_rate": 0.08,
+    "maximum_rejected_quantity_rate": 0.05,
+    "quantity_decimal_places": 3
+  },
+
+  "temperature_rules": {
+    "AMBIENT": {
+      "minimum_temperature_celsius": 10.0,
+      "maximum_temperature_celsius": 25.0,
+      "breach_probability": 0.005
+    },
+    "CHILLED": {
+      "minimum_temperature_celsius": 0.0,
+      "maximum_temperature_celsius": 5.0,
+      "breach_probability": 0.015
+    },
+    "FROZEN": {
+      "minimum_temperature_celsius": -25.0,
+      "maximum_temperature_celsius": -18.0,
+      "breach_probability": 0.010
+    }
+  },
+
+  "carrier_configuration": [
+    {
+      "carrier_code": "CAR-001",
+      "carrier_name": "BritLogistics UK",
+      "service_level": "STANDARD"
+    },
+    {
+      "carrier_code": "CAR-002",
+      "carrier_name": "Northern Freight Solutions",
+      "service_level": "STANDARD"
+    },
+    {
+      "carrier_code": "CAR-003",
+      "carrier_name": "Midlands Distribution Services",
+      "service_level": "STANDARD"
+    },
+    {
+      "carrier_code": "CAR-004",
+      "carrier_name": "Southern Retail Transport",
+      "service_level": "STANDARD"
+    },
+    {
+      "carrier_code": "CAR-005",
+      "carrier_name": "ColdChain Logistics UK",
+      "service_level": "TEMPERATURE_CONTROLLED"
+    },
+    {
+      "carrier_code": "CAR-006",
+      "carrier_name": "BritMart Primary Distribution",
+      "service_level": "EXPRESS"
+    }
+  ],
+
+  "vehicle_types": [
+    "ARTICULATED_LORRY",
+    "RIGID_LORRY",
+    "REFRIGERATED_LORRY",
+    "FROZEN_TRAILER",
+    "MIXED_TEMPERATURE_TRAILER"
+  ],
+
+  "shipment_reference_prefix": "SHP",
+  "supplier_shipment_reference_prefix": "SSREF",
+  "status_history_reference_prefix": "SHS",
+
+  "fabric_incremental_extraction": {
+    "watermark_column": "updated_at",
+    "tie_breaker_column": "shipment_id",
+    "timestamp_timezone": "UTC",
+    "default_page_size": 100,
+    "maximum_page_size": 1000,
+    "supports_updated_since": true
+  },
+
+  "business_rules": {
+    "draft_orders_must_not_have_shipments": true,
+    "cancelled_orders_must_not_have_active_shipments": true,
+    "shipment_supplier_must_match_purchase_order_supplier": true,
+    "shipment_destination_must_match_purchase_order_destination": true,
+    "shipment_product_must_exist_on_purchase_order": true,
+    "cumulative_shipped_quantity_cannot_exceed_ordered_quantity": true,
+    "received_quantity_cannot_exceed_shipped_quantity": true,
+    "damaged_quantity_cannot_exceed_received_quantity": true,
+    "rejected_quantity_cannot_exceed_received_quantity": true,
+    "accepted_quantity_must_reconcile": true,
+    "delivered_shipments_require_actual_delivery_timestamp": true,
+    "undelivered_shipments_must_not_have_actual_delivery_timestamp": true,
+    "cancelled_shipments_must_have_zero_received_quantity": true,
+    "all_timestamps_must_be_utc": true
+  },
+
+  "expected_validation_domains": [
+    "FILE_EXISTENCE",
+    "SCHEMA",
+    "UNIQUENESS",
+    "REFERENTIAL_INTEGRITY",
+    "STATUS_LOGIC",
+    "DATE_LOGIC",
+    "QUANTITY_RECONCILIATION",
+    "PURCHASE_ORDER_RECONCILIATION",
+    "DELIVERY_PERFORMANCE",
+    "TEMPERATURE_CONTROL",
+    "MANIFEST_INTEGRITY",
+    "REPRODUCIBILITY"
+  ]
+}

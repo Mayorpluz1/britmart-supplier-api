@@ -1,0 +1,173 @@
+{
+  "release_name": "BritMart Integrated Operational Data Release",
+  "release_version": "1.0.0",
+  "release_type": "FULL_BASELINE",
+  "source_system": "BRITMART_SYNTHETIC_PLATFORM",
+  "generated_data_directory": "../output",
+  "release_timestamp_utc": "2026-08-16T15:00:00Z",
+  "approved_for_database_loading": true,
+  "approved_for_fabric_ingestion": true,
+  "hash_algorithm": "sha256",
+  "encoding": "utf-8",
+  "required_datasets": [
+    {
+      "dataset_name": "regions",
+      "file_name": "regions.csv",
+      "domain": "LOCATION_MASTER",
+      "source_owner": "SQL_OPERATIONAL_SYSTEM",
+      "primary_key": ["region_id"],
+      "expected_record_count": 12
+    },
+    {
+      "dataset_name": "distribution_centres",
+      "file_name": "distribution_centres.csv",
+      "domain": "LOCATION_MASTER",
+      "source_owner": "SQL_OPERATIONAL_SYSTEM",
+      "primary_key": ["distribution_centre_id"],
+      "expected_record_count": 6
+    },
+    {
+      "dataset_name": "stores",
+      "file_name": "stores.csv",
+      "domain": "LOCATION_MASTER",
+      "source_owner": "SQL_OPERATIONAL_SYSTEM",
+      "primary_key": ["store_id"],
+      "expected_record_count": 120
+    },
+    {
+      "dataset_name": "categories",
+      "file_name": "categories.csv",
+      "domain": "PRODUCT_MASTER",
+      "source_owner": "SQL_OPERATIONAL_SYSTEM",
+      "primary_key": ["category_id"],
+      "expected_record_count": 5
+    },
+    {
+      "dataset_name": "subcategories",
+      "file_name": "subcategories.csv",
+      "domain": "PRODUCT_MASTER",
+      "source_owner": "SQL_OPERATIONAL_SYSTEM",
+      "primary_key": ["subcategory_id"],
+      "expected_record_count": 40
+    },
+    {
+      "dataset_name": "products",
+      "file_name": "products.csv",
+      "domain": "PRODUCT_MASTER",
+      "source_owner": "SQL_OPERATIONAL_SYSTEM",
+      "primary_key": ["product_id"],
+      "expected_record_count": 2000
+    },
+    {
+      "dataset_name": "suppliers",
+      "file_name": "suppliers.csv",
+      "domain": "SUPPLIER_MASTER",
+      "source_owner": "SUPPLIER_API",
+      "primary_key": ["supplier_id"],
+      "expected_record_count": 50
+    },
+    {
+      "dataset_name": "supplier_products",
+      "file_name": "supplier_products.csv",
+      "domain": "SUPPLIER_PRODUCT_AGREEMENT",
+      "source_owner": "SUPPLIER_API",
+      "primary_key": ["supplier_product_id"],
+      "expected_record_count": 2600
+    },
+    {
+      "dataset_name": "purchase_orders",
+      "file_name": "purchase_orders.csv",
+      "domain": "PROCUREMENT",
+      "source_owner": "SUPPLIER_API",
+      "primary_key": ["purchase_order_id"],
+      "expected_record_count": 8000
+    },
+    {
+      "dataset_name": "purchase_order_lines",
+      "file_name": "purchase_order_lines.csv",
+      "domain": "PROCUREMENT",
+      "source_owner": "SUPPLIER_API",
+      "primary_key": ["purchase_order_line_id"],
+      "expected_record_count": 48000
+    },
+    {
+      "dataset_name": "shipments",
+      "file_name": "shipments.csv",
+      "domain": "SUPPLIER_LOGISTICS",
+      "source_owner": "SUPPLIER_API",
+      "primary_key": ["shipment_id"],
+      "expected_record_count": 9847
+    },
+    {
+      "dataset_name": "shipment_lines",
+      "file_name": "shipment_lines.csv",
+      "domain": "SUPPLIER_LOGISTICS",
+      "source_owner": "SUPPLIER_API",
+      "primary_key": ["shipment_line_id"],
+      "expected_record_count": 52100
+    },
+    {
+      "dataset_name": "shipment_status_history",
+      "file_name": "shipment_status_history.csv",
+      "domain": "SUPPLIER_LOGISTICS",
+      "source_owner": "SUPPLIER_API",
+      "primary_key": ["shipment_status_history_id"],
+      "expected_record_count": 36761
+    },
+    {
+      "dataset_name": "goods_receipts",
+      "file_name": "warehouse_goods_receipts.csv",
+      "domain": "WAREHOUSE_RECEIVING",
+      "source_owner": "SQL_OPERATIONAL_SYSTEM",
+      "primary_key": ["goods_receipt_id"],
+      "expected_record_count": 8576
+    },
+    {
+      "dataset_name": "goods_receipt_lines",
+      "file_name": "warehouse_goods_receipt_lines.csv",
+      "domain": "WAREHOUSE_RECEIVING",
+      "source_owner": "SQL_OPERATIONAL_SYSTEM",
+      "primary_key": ["goods_receipt_line_id"],
+      "expected_record_count": 45310
+    },
+    {
+      "dataset_name": "inventory_movements",
+      "file_name": "warehouse_inventory_movements.csv",
+      "domain": "WAREHOUSE_INVENTORY",
+      "source_owner": "SQL_OPERATIONAL_SYSTEM",
+      "primary_key": ["inventory_movement_id"],
+      "expected_record_count": 47185
+    },
+    {
+      "dataset_name": "supplier_performance_events",
+      "file_name": "supplier_performance_events.csv",
+      "domain": "SUPPLIER_PERFORMANCE",
+      "source_owner": "SUPPLIER_API",
+      "primary_key": ["supplier_performance_event_id"],
+      "expected_record_count": 17235
+    },
+    {
+      "dataset_name": "supplier_monthly_scorecards",
+      "file_name": "supplier_performance_monthly.csv",
+      "domain": "SUPPLIER_PERFORMANCE",
+      "source_owner": "SUPPLIER_API",
+      "primary_key": ["supplier_performance_monthly_id"],
+      "expected_record_count": 577
+    }
+  ],
+  "expected_dataset_count": 18,
+  "expected_total_record_count": 278424,
+  "required_reconciliation_controls": [
+    "PURCHASE_ORDER_HEADER_TO_LINE",
+    "PURCHASE_ORDER_TO_SHIPMENT",
+    "SHIPMENT_HEADER_TO_LINE",
+    "SHIPMENT_TO_GOODS_RECEIPT",
+    "GOODS_RECEIPT_HEADER_TO_LINE",
+    "GOODS_RECEIPT_TO_INVENTORY_MOVEMENT",
+    "AVAILABLE_AND_QUARANTINE_INVENTORY",
+    "REJECTED_QUANTITY_ZERO_STOCK_EFFECT",
+    "DELIVERY_TO_SUPPLIER_PERFORMANCE",
+    "WAREHOUSE_QUALITY_TO_SUPPLIER_PERFORMANCE",
+    "MONTHLY_OTIF_SCORECARD"
+  ]
+}
