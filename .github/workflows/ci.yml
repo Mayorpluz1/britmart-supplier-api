@@ -34,10 +34,10 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.13"
           cache: pip
@@ -57,6 +57,19 @@ jobs:
 
       - name: Generate and validate deterministic source data
         run: |
+          mkdir -p data-generators/output
+          python data-generators/src/generate_locations.py
+          python data-generators/src/generate_products.py
+          python data-generators/src/generate_suppliers.py
+          python data-generators/src/generate_supplier_products.py
+          python data-generators/src/generate_master_data_release.py
+          python data-generators/src/validate_master_data.py
+          python data-generators/src/generate_purchase_orders.py
+          python data-generators/src/generate_shipments.py
+          python data-generators/src/generate_goods_receipts.py
+          python data-generators/src/generate_supplier_performance.py
+          python data-generators/src/generate_operational_data_release.py
+          python data-generators/src/validate_operational_data_release.py
           python -m pytest data-generators/tests -q
 
       - name: Create operational test database
