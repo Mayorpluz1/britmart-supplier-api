@@ -1,0 +1,78 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality-gate:
+    name: Test, validate and build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      ENVIRONMENT: test
+      DATABASE_URL: sqlite:///./britmart_supplier.db
+      API_KEY: github-actions-test-api-key-change-me
+      AUTHENTICATION_ENABLED: "true"
+      FAILURE_SIMULATION_ENABLED: "true"
+      FAILURE_SIMULATION_RATE: "0.0"
+      FAILURE_SIMULATION_DELAY_SECONDS: "0.001"
+      FAILURE_SIMULATION_MAX_DELAY_MS: "10000"
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-dev.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt
+          python -m pip check
+
+      - name: Compile Python sources
+        run: |
+          python -m compileall -q app scripts data-generators/src tests
+
+      - name: Generate and validate deterministic source data
+        run: |
+          python -m pytest data-generators/tests -q
+
+      - name: Create operational test database
+        run: |
+          rm -f britmart_supplier.db
+          python -m alembic upgrade head
+          python -m scripts.load_operational_data
+
+      - name: Run API and database tests
+        run: |
+          python -m pytest tests/api tests/database -q
+
+      - name: Check migration and model alignment
+        run: |
+          python -m alembic check
+
+      - name: Build production container image
+        run: |
+          docker build --tag britmart-supplier-api:${{ github.sha }} .
